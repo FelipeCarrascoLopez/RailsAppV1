@@ -1,0 +1,14 @@
+<%= form_with(model: comment, class:"flex flex-col") do |form| %>
+
+  <div>
+    <%= form.hidden_field :article_id, value: article.id %>
+  </div>
+
+  <div>
+    <%= form.text_field :text, class:"field-form" %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn-primary bg-green-800" %>
+  </div>
+<% end %>
