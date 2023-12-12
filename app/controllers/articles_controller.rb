@@ -60,6 +60,6 @@ class ArticlesController < ApplicationController
   end
 
   def same_user?
-    redirect_to articles_path if @article.user != current_user && !current_user.profile.superadmin?
+    redirect_to articles_path if @article.user != current_user && !current_user.profile.admin?
   end
 end

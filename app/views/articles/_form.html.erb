@@ -15,23 +15,23 @@
       <% end %>
 
       <div>
-        <%= form.label :name, 'Insert name: ', class:"label-form" %>
+        <%= form.label :name, 'Titulo: ', class:"label-form" %>
         <%= form.text_field :name, class:"field-form" %>
       </div>
       <div>
-        <%= form.label :description, 'Insert desciption: ', class:"label-form" %>
+        <%= form.label :description, 'Bajada: ', class:"label-form" %>
         <%= form.text_field :description, class:"field-form" %>
       </div>
       <div class="my-2">
-        <%= form.label :avatar, 'Insert main image: ', class:"label-form" %>
-        <%= form.file_field :avatar %>
-      </div>
-      <div class="my-2">
-        <%= form.label :body, 'Insert content: ', class:"label-form" %>
+        <%= form.label :body, 'Texto: ', class:"label-form" %>
         <%= form.rich_text_area :body %>
       </div>
+            <div class="my-2">
+        <%= form.label :avatar, 'Vista Previa: ', class:"label-form" %>
+        <%= form.file_field :avatar %>
+      </div>
       <div class="flex flex-col gap-2">
-        <span class="font-bold text-sm">Categories.</span>
+        <span class="font-bold text-sm">Categorias.</span>
         <%= collection_check_boxes(:categories, :ids, Category.all, :id, :name) do |b| %>
             <div class="flex items-center gap-2">
           <% if @article.categories.include?(Category.find(b.object.id)) %>

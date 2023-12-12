@@ -7,15 +7,15 @@
         <span class="font-bold text-2xl">
           <%= article.name %> <br>
         </span>
-        <span class="text-sm font-semibold">
-          <%= article.user.email %> <br>
-        </span>
         <span class="text-sm">
           <%= article.description %> <br>
         </span>
       </div>
+        <div class="w-96 my-10">
+        <%= image_tag(article.avatar) if article.avatar.attached? %>
+        </div>
       <span class="my-3">
-        <%= link_to 'See more', article_path(article), class: "btn-primary bg-blue-800" %>
+        <%= link_to 'Ver Noticia', article_path(article), class: "btn-primary bg-blue-800" %>
       </span>
     </div>
   <% end %>

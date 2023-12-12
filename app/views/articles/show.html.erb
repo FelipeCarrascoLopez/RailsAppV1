@@ -1,35 +1,37 @@
 <section class="m-10 p-10 flex flex-col items-center">
-  <h1 class="main-title mb-1"> <%= @article.name %> </h1>
-  <div><%= @article.description %></div>
 
-  <div class="flex gap-5 my-2 items-center justify-center">
-    <% @article.categories.each do |category| %>
-      <span class="bg-blue-100 text-blue-800 text-xs font-semibold rounded-lg p-1">
-        <%= category.name %>
-      </span>
-    <% end %>
+  <div>
+  <br>
+    Autor <%=@article.user.profile.name %> ,
+    <%= @article.created_at.strftime("%A %d %B %Y") %>
+  <br>
   </div>
 
-  <div class="w-96 my-10">
-    <%= image_tag(@article.avatar) if @article.avatar.attached? %>
+  <h1 class="main-title mb-1">
+  <br>
+    <%= @article.name %>
+  <br>
+  <br>
+  <br>
+  <br>
+  </h1>
+
+  <div>
+    <br>
+    <%= @article.description %>
+    <br>
   </div>
 
   <div class="flex flex-col items-center justify-center text-center">
     <%= @article.body %>
   </div>
 
-  <% unless current_user.profile.member? %>
-
-  <% if current_user == @article.user || current_user.profile.superadmin? %>
-
-  <div class="flex gap-10">
-    <%= link_to 'Edit article', article_edit_path(@article), class:"btn-primary bg-blue-800" %>
-    <%= button_to 'Delete article', article_destroy_path(@article), class:"btn-primary bg-red-800",
-        method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
-  </div>
-
-  <% end %>
-
+  <% if current_user == @article.user || current_user.profile.admin? %>
+    <div class="flex gap-10">
+      <%= link_to 'Edit article', article_edit_path(@article), class:"btn-primary bg-blue-800" %>
+      <%= button_to 'Delete article', article_destroy_path(@article), class:"btn-primary bg-red-800",
+          method: :delete, form: { data: { turbo_confirm: 'Estas seguro?' } } %>
+    </div>
   <% end %>
 
   <div class="w-full">
