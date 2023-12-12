@@ -3,9 +3,9 @@ default: &default
   encoding: unicode
   host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: ENV['POSTGRES_USERNAME']
-  password: ENV['POSTGRES_PASSWORD']
-  url: <%= ENV['DATABASE_URL'] %>
+  username: 'yhkygake'
+  password: '9C0dPdiylEaRA0DNI9KYUstNlpo60G2R'
+  url: 'postgres://yhkygake:9C0dPdiylEaRA0DNI9KYUstNlpo60G2R@hansken.db.elephantsql.com/yhkygake'
 
 development:
   <<: *default
