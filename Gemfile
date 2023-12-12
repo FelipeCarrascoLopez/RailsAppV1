@@ -54,7 +54,7 @@ gem 'hirb'
 
 gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.17'
 
-gem "azure-storage-blob", "~> 2.0", require: false
+#gem "azure-storage-blob", "~> 2.0", require: false
 
 gem "pry"
 
